@@ -29,10 +29,7 @@ function setup() {
                 let predatel = new Predatel(x, y);
                 predatelArr.push(predatel);
             }
-            if (matrix[y][x] == 5) {
-                let cogotsm = new Cogotsm(x, y);
-                cogotsmArr.push(cogotsm);
-            }
+            
         }
     }
     function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogotsm) {

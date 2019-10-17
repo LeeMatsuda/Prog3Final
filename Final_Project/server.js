@@ -4,7 +4,7 @@ let GrassEater = require("./modules/GrassEater.js");
 let Predatel = require("./modules/Predatel.js");
 let Predator = require("./modules/Predator.js");
 let Cogotsm = require("./modules/Cogotsm.js");
-let random = require('./modules/random');
+let random = require('./modules/random.js');
 //! Requiring modules  --  END
 
 //! Initializing global arrays  --  START
@@ -12,7 +12,7 @@ grassArr = [];
 grassEaterArr = [];
 predatorArr = [];
 predatelArr = [];
-cogotmsArr = [];
+cogotsmArr = [];
 matrix = [];
 //! Initializing global arrays  --  END
 
@@ -21,13 +21,13 @@ grassHashiv = 0;
 grassEaterHashiv = 0;
 predatorHashiv = 0;
 predatelHashiv = 0;
-cogotmsHashiv = 0;
+cogotsmHashiv = 0;
 // statistics end
 
 // time = 0
 //! Creating MATRIX -- START
 
-function matrixGenerator(matrixSize, grass, eat, hunt, term, titan) {
+function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogotsm) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -39,28 +39,28 @@ function matrixGenerator(matrixSize, grass, eat, hunt, term, titan) {
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 1;
     }
-    for (let i = 0; i < eat; i++) {
+    for (let i = 0; i < grassEater; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 2;
     }
-    for (let i = 0; i < hunt; i++) {
+    for (let i = 0; i < predator; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 3;
     }
-    for (let i = 0; i < term; i++) {
+    for (let i = 0; i < predatel; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 4;
     }
-    for (let i = 0; i < titan; i++) {
+    for (let i = 0; i < cogotsm; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 25, 20, 15, 10, 2);
+matrixGenerator(20, 25, 20, 15, 10, 2, 1);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -99,7 +99,8 @@ function creatingObjects() {
             }
             else if (matrix[y][x] == 5) {
                 var cogotsm = new Cogotsm(x, y);
-                cogotmsHashiv++
+                cogotsmArr.push(cogotsm);
+                cogotsmHashiv++
             }
         }
     }
@@ -129,7 +130,7 @@ function game() {
     }
     if (GrassEater[0] !== undefined) {
         for (var i in eatArr) {
-            eatArr[i].eat();
+            Arr[i].eat();
         }
     }
     if (predatorArr[0] !== undefined) {
@@ -153,10 +154,10 @@ function game() {
         matrix: matrix,
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
-        eatCounter: eatHashiv,
-        huntCounter: huntHashiv,
-        termCounter: termHashiv,
-        titanCounter: titanHashiv,
+        grassEaterCounter: grassEaterHashiv,
+        predatorCounter: predatorHashiv,
+        predatelCounter: predatelHashiv,
+        cogotsmCounter: cogotsmHashiv,
         weather: weather
     }
 
