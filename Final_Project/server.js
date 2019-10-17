@@ -128,9 +128,9 @@ function game() {
             grassArr[i].mul();
         }
     }
-    if (GrassEater[0] !== undefined) {
-        for (var i in eatArr) {
-            Arr[i].eat();
+    if (grassEaterArr[0] !== undefined) {
+        for (var i in grassEaterArr) {
+            grassEaterArr[i].eat();
         }
     }
     if (predatorArr[0] !== undefined) {
