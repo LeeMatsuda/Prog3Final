@@ -156,6 +156,7 @@ function game() {
         grassLiveCounter: grassArr.length,
         grassEaterCounter: grassEaterHashiv,
         predatorCounter: predatorHashiv,
+        predatorLiveCounter: predatorArr.length,
         predatelCounter: predatelHashiv,
         cogotsmCounter: cogotsmHashiv,
         weather: weather

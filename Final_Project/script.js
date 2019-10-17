@@ -7,8 +7,9 @@ function setup() {
     let weatherElement = document.getElementById('weather');
     let grassCountElement = document.getElementById('grassCount');
     let grassLiveCountElement = document.getElementById('grassLiveCount');
-    let grassEaterCountElement = document.getElementById('grassEaterCount');
+    let grassEaterCountElement = document.getElementById('grassEaterLiveCount');
     let predatorCountElement = document.getElementById('predatorCount');
+    let predatorLiveCountElement = document.getElementById('predatorLiveCount');
     let predatelCountElement = document.getElementById('predatelCount');
     let cogotsmCountElement = document.getElementById('cogotsmCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
@@ -16,8 +17,7 @@ function setup() {
     socket.on("data", drawCreatures);
 
     function drawCreatures(data) {
-
-
+        
         // let sendData = {
         //     matrix: matrix,
         //     grassCounter: grassHashiv,
@@ -30,12 +30,16 @@ function setup() {
         // }
 
         //! after getting data pass it to matrix variable
+        console.log(data.grassEaterCounter);
+        
+
         matrix = data.matrix;
         weatherElement.innerText = data.weather;
         grassCountElement.innerText = data.grassCounter;
         grassLiveCountElement.innerText = data.grassLiveCounter;
-        grassEaterCountElement.innerText = data.eatCounter;
+        grassEaterCountElement.innerText = data.grassEaterCounter;
         predatorCountElement.innerText = data.predatorCounter;
+        predatorLiveCountElement.innerText = data.predatorLiveCounter;
         predatelCountElement.innerText = data.predatelCounter;
         cogotsmCountElement.innerText = data.cogotsmCounter;
         //! Every time it creates new Canvas with new matrix size

@@ -44,7 +44,7 @@ module.exports = class GrassEater extends LiveForm {
 
             // matrixi mej gru mem MEK -> 1
             matrix[y][x] = 2;
-
+            grassEaterHashiv++;
             // sarqum em OBJ lscnum grassArr-i mej 
             let grassEater = new GrassEater(x, y);
             grassEaterArr.push(grassEater);
