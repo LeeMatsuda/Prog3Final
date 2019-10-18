@@ -43,7 +43,7 @@ module.exports = class Predator extends LiveForm {
             let y = newCell[1];
             predatelHashiv ++;
             matrix[y][x] = 3;
-
+            predatorHashiv++;
             let predator = new Predator(x, y);
             predatorArr.push(predator);
 

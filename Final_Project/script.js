@@ -7,11 +7,14 @@ function setup() {
     let weatherElement = document.getElementById('weather');
     let grassCountElement = document.getElementById('grassCount');
     let grassLiveCountElement = document.getElementById('grassLiveCount');
-    let grassEaterCountElement = document.getElementById('grassEaterLiveCount');
+    let grassEaterCountElement = document.getElementById('grassEaterCount');
+    let grassEaterLiveCountElement = document.getElementById('grassEaterLiveCount');
     let predatorCountElement = document.getElementById('predatorCount');
     let predatorLiveCountElement = document.getElementById('predatorLiveCount');
     let predatelCountElement = document.getElementById('predatelCount');
+    let predatelLiveCountElement = document.getElementById('predatelLiveCount');
     let cogotsmCountElement = document.getElementById('cogotsmCount');
+    let cogotsmLiveCountElement = document.getElementById('cogotsmLiveCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
@@ -30,18 +33,25 @@ function setup() {
         // }
 
         //! after getting data pass it to matrix variable
-        console.log(data.grassEaterCounter);
+        
         
 
         matrix = data.matrix;
         weatherElement.innerText = data.weather;
         grassCountElement.innerText = data.grassCounter;
         grassLiveCountElement.innerText = data.grassLiveCounter;
+        
         grassEaterCountElement.innerText = data.grassEaterCounter;
+        grassEaterLiveCountElement.innerText = data.grassEaterLiveCounter;
+
         predatorCountElement.innerText = data.predatorCounter;
         predatorLiveCountElement.innerText = data.predatorLiveCounter;
+       
         predatelCountElement.innerText = data.predatelCounter;
+        predatelLiveCountElement.innerText = data.predatelLiveCounter;
+        
         cogotsmCountElement.innerText = data.cogotsmCounter;
+        cogotsmLiveCountElement.innerText = data.cogotsmLiveCounter;
         //! Every time it creates new Canvas with new matrix size
         createCanvas(matrix[0].length * side, matrix.length * side)
         //! clearing background by setting it to new grey color

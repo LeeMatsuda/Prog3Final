@@ -60,7 +60,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogot
         matrix[customY][customX] = 5;
     }
 }
-matrixGenerator(20, 25, 20, 15, 10, 2, 1);
+matrixGenerator(22, 25, 20, 10 ,25, 6);
 //! Creating MATRIX -- END
 
 //! SERVER STUFF  --  START
@@ -100,7 +100,6 @@ function creatingObjects() {
             else if (matrix[y][x] == 5) {
                 var cogotsm = new Cogotsm(x, y);
                 cogotsmArr.push(cogotsm);
-                cogotsmHashiv++
             }
         }
     }
@@ -155,10 +154,13 @@ function game() {
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
         grassEaterCounter: grassEaterHashiv,
+        grassEaterLiveCounter: grassEaterArr.length,
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
-        predatelCounter: predatelHashiv,
-        cogotsmCounter: cogotsmHashiv,
+        predatelCounter: 25,
+        predatelLiveCounter: predatelArr.length,
+        cogotsmCounter: 6,
+        cogotsmLiveCounter: 6,
         weather: weather
     }
 
