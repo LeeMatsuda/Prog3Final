@@ -1,6 +1,6 @@
 function setup() {
     var socket = io();
-    var side = 30;
+    var side = 15;
     var matrix = [];
     
     //! Getting DOM objects (HTML elements)
@@ -66,6 +66,10 @@ function setup() {
                         fill("green");
                     }else if (data.weather == "autumn"){
                         fill("orange");
+                    } else if (data.weather == "winter"){
+                        fill("white");
+                    } else if (data.weather == "spring"){
+                        fill("rgb(123, 163, 107)");
                     }
                     rect(j * side, i * side, side, side);
                 } else if (matrix[i][j] == 2) {
@@ -84,7 +88,15 @@ function setup() {
                     fill('black');
                     rect(j * side, i * side, side, side);
                 }
+                else if (matrix[i][j] == 6) {
+                    fill('#000080');
+                    rect(j * side, i * side, side, side);
             }
+            else if (matrix[i][j] == 7) {
+                fill('#F0E68C');
+                rect(j * side, i * side, side, side);
         }
     }
+}
+}
 }
