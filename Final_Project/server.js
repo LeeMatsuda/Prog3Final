@@ -1,5 +1,5 @@
 //! Requiring modules  --  START
-let count =true
+let count =true;
 let Grass = require("./modules/Grass.js");
 let GrassEater = require("./modules/GrassEater.js");
 let Predatel = require("./modules/Predatel.js");
@@ -188,7 +188,7 @@ function game() {
                 if (waterArr.length == 50 && count ) {
                     count =false
                     let curr = random(waterArr);
-                    for (var l = 0; l < 5; l++) {
+                    for (var l = 0; l < 7; l++) {
                         matrix[curr.y][curr.x] = 7;
                         let fish = new Fish(curr.x, curr.y);
                         fishArr.push(fish)
@@ -204,7 +204,7 @@ function game() {
             }
         }
         if (fishArr[0] !== undefined) {
-            for (var i in fishArr) {
+            for (let i in fishArr) {
                 fishArr[i].move();
             }
         }

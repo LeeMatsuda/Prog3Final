@@ -1,4 +1,4 @@
-let varkyan = 0;
+
 
 function setup() {
     var socket = io();
@@ -20,28 +20,11 @@ function setup() {
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
-    function plus() {
-        varkyan++
-    }
-    setInterval(plus, 300)
+
 
     function drawCreatures(data) {
-        
-        // let sendData = {
-        //     matrix: matrix,
-        //     grassCounter: grassHashiv,
-        //     grassLiveCounter: grassArr.length,
-        //     eatCounter: eatHashiv,
-        //     huntCounter: huntHashiv,
-        //     termCounter: termHashiv,
-        //     titanCounter: titanHashiv,
-        //     weather: weather
-        // }
-
-        //! after getting data pass it to matrix variable
-        
-        
-
+ 
+    
         matrix = data.matrix;
         weatherElement.innerText = data.weather;
         grassCountElement.innerText = data.grassCounter;
@@ -70,37 +53,37 @@ function setup() {
                 if (matrix[i][j] == 1) {
                     if(data.weather == "summer"){
                         fill("green");
-                    }else if (data.weather == "autumn"){
+                    }   else if (data.weather == "autumn"){
                         fill("orange");
-                    } else if (data.weather == "winter"){
+                    }   else if (data.weather == "winter"){
                         fill("white");
-                    } else if (data.weather == "spring"){
+                    }   else if (data.weather == "spring"){
                         fill("rgb(123, 163, 107)");
                     }
-                    rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 2) {
-                    fill("yellow");
-                    rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 0) {
-                    fill('#acacac');
-                    rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 3) {
-                    fill('red');
-                    rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 4) {
-                    fill('blue');
-                    rect(j * side, i * side, side, side);
-                } else if (matrix[i][j] == 5) {
-                    fill('black');
-                    rect(j * side, i * side, side, side);
-                }
-                else if (matrix[i][j] == 7) {
-                    fill('#F0E68C');
-                    rect(j * side, i * side, side, side);
-            }
-            else if (matrix[i][j] == 6) {
-                fill('#3977ff');
-                rect(j * side, i * side, side, side);
+                        rect(j * side, i * side, side, side);
+                    }   else if (matrix[i][j] == 2) {
+                        fill("yellow");
+                        rect(j * side, i * side, side, side);
+                    }  else if (matrix[i][j] == 0) {
+                        fill('#acacac');
+                        rect(j * side, i * side, side, side);
+                    }   else if (matrix[i][j] == 3) {
+                        fill('red');
+                        rect(j * side, i * side, side, side);
+                    }   else if (matrix[i][j] == 4) {
+                        fill('blue');
+                        rect(j * side, i * side, side, side);
+                    }   else if (matrix[i][j] == 5) {
+                        fill('black');
+                        rect(j * side, i * side, side, side);
+                    }
+                        else if (matrix[i][j] == 7) {
+                        fill('#F0E68C');
+                        rect(j * side, i * side, side, side);
+                    }
+                        else if (matrix[i][j] == 6) {
+                        fill('#3977ff');
+                        rect(j * side, i * side, side, side);
         }
     }
 }
