@@ -1,6 +1,7 @@
 var LiveForm = require("./LiveForm");
 var random = require("./random");
 
+
 module.exports = class Fish extends LiveForm {
     constructor(x, y) {
         super(x, y);
@@ -42,8 +43,8 @@ module.exports = class Fish extends LiveForm {
             let y = newCell[1];
 
 
-            matrix[y][x] = 5;
-            matrix[this.y][this.x] = 4;
+            matrix[y][x] = 7;
+            matrix[this.y][this.x] = 6;
 
             this.y = y;
             this.x = x;

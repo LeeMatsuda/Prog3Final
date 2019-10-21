@@ -1,4 +1,5 @@
 //! Requiring modules  --  START
+let count =true
 let Grass = require("./modules/Grass.js");
 let GrassEater = require("./modules/GrassEater.js");
 let Predatel = require("./modules/Predatel.js");
@@ -6,7 +7,7 @@ let Predator = require("./modules/Predator.js");
 let Cogotsm = require("./modules/Cogotsm.js");
 let random = require('./modules/random.js');
 let Fish = require('./modules/Fish.js');
-let Wather = require('./modules/Wather.js');
+let Water = require('./modules/Water.js');
 //! Requiring modules  --  END
 
 //! Initializing global arrays  --  START
@@ -16,7 +17,7 @@ predatorArr = [];
 predatelArr = [];
 cogotsmArr = [];
 fishArr = [];
-watherArr = [];
+waterArr = [];
 matrix = [];
 //! Initializing global arrays  --  END
 
@@ -27,13 +28,13 @@ predatorHashiv = 0;
 predatelHashiv = 0;
 cogotsmHashiv = 0;
 fishHashiv = 0;
-watherHashiv = 0;
+waterHashiv = 0;
 // statistics end
 
 // time = 0
 //! Creating MATRIX -- START
 
-function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogotsm, fish, wather ) {
+function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogotsm, water, fish ) {
     for (let i = 0; i < matrixSize; i++) {
         matrix[i] = [];
         for (let o = 0; o < matrixSize; o++) {
@@ -65,19 +66,20 @@ function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogot
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 5;
     }
-    for (let i = 0; i < fish; i++) {
+    for (let i = 0; i < water; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 6;
     }
-    for (let i = 0; i < wather; i++) {
+    for (let i = 0; i < fish; i++) {
         let customX = Math.floor(random(matrixSize));
         let customY = Math.floor(random(matrixSize));
         matrix[customY][customX] = 7;
     }
+    
 }
 
-matrixGenerator(44, 50, 10, 20 ,50, 12, 2, 1);
+matrixGenerator(44, 0, 0, 0 ,0, 1, 1);
 
 var express = require('express');
 var app = express();
@@ -118,13 +120,13 @@ function creatingObjects() {
                 cogotsmHashiv++;
             }
             else if (matrix[y][x] == 6) {
+                var water = new Water(x, y);
+                waterArr.push(water); 
+            }
+            else if (matrix[y][x] == 7) {
                 var fish = new Fish(x, y);
                 fishArr.push(fish);
 
-            }
-            else if (matrix[y][x] == 7) {
-                var wather = new Wather(x, y);
-                watherArr.push(wather); 
             }
         }
     }
@@ -179,11 +181,33 @@ function game() {
         for (var i in cogotsmArr) {
             cogotsmArr[i].eat();
         }
-        if (watherArr[0] !== undefined) {
-            for (var i in watherArr) {
-                watherArr[i].mul();
+        if (waterArr[0] !== undefined) {
+            for (var i in waterArr) {
+                waterArr[i].mul();
+                
+                if (waterArr.length == 50 && count ) {
+                    count =false
+                    let curr = random(waterArr);
+                    for (var l = 0; l < 5; l++) {
+                        matrix[curr.y][curr.x] = 7;
+                        let fish = new Fish(curr.x, curr.y);
+                        fishArr.push(fish)
+                    }
+        
+                    for (let i in waterArr) {
+                        if (waterArr[i].x == curr.x && waterArr[i].y == curr.y) {
+                            waterArr.splice(i, 1)
+                        }
+                    }
+                     count = 0;
+                }
             }
-           }
+        }
+        if (fishArr[0] !== undefined) {
+            for (var i in fishArr) {
+                fishArr[i].move();
+            }
+        }
 
     //! Object to send
     let sendData = {
@@ -207,4 +231,4 @@ function game() {
 }
 
 
-setInterval(game, 1000)
+setInterval(game, 300)

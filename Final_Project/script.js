@@ -1,6 +1,8 @@
+let varkyan = 0;
+
 function setup() {
     var socket = io();
-    var side = 15;
+    var side = 20;
     var matrix = [];
     
     //! Getting DOM objects (HTML elements)
@@ -18,6 +20,10 @@ function setup() {
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
+    function plus() {
+        varkyan++
+    }
+    setInterval(plus, 300)
 
     function drawCreatures(data) {
         
@@ -88,12 +94,12 @@ function setup() {
                     fill('black');
                     rect(j * side, i * side, side, side);
                 }
-                else if (matrix[i][j] == 6) {
-                    fill('#000080');
+                else if (matrix[i][j] == 7) {
+                    fill('#F0E68C');
                     rect(j * side, i * side, side, side);
             }
-            else if (matrix[i][j] == 7) {
-                fill('#F0E68C');
+            else if (matrix[i][j] == 6) {
+                fill('#3977ff');
                 rect(j * side, i * side, side, side);
         }
     }
