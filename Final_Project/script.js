@@ -2,21 +2,32 @@
 
 function setup() {
     var socket = io();
-    var side = 20;
+    var side = 10;
     var matrix = [];
     
     //! Getting DOM objects (HTML elements)
     let weatherElement = document.getElementById('weather');
+
     let grassCountElement = document.getElementById('grassCount');
     let grassLiveCountElement = document.getElementById('grassLiveCount');
+
     let grassEaterCountElement = document.getElementById('grassEaterCount');
     let grassEaterLiveCountElement = document.getElementById('grassEaterLiveCount');
+
     let predatorCountElement = document.getElementById('predatorCount');
     let predatorLiveCountElement = document.getElementById('predatorLiveCount');
+
     let predatelCountElement = document.getElementById('predatelCount');
     let predatelLiveCountElement = document.getElementById('predatelLiveCount');
+
     let cogotsmCountElement = document.getElementById('cogotsmCount');
     let cogotsmLiveCountElement = document.getElementById('cogotsmLiveCount');
+
+    let waterCountElement = document.getElementById('waterCount');
+    let waterCountLiveElement = document.getElementById('waterLiveCount')
+
+    let fishCountElement = document.getElementById('fishCount');
+    let fishCountLiveElement = document.getElementById('fishLiveCount');
     //! adding socket listener on "data" <-- name, after that fire 'drawCreatures' function 
 
     socket.on("data", drawCreatures);
@@ -41,6 +52,12 @@ function setup() {
         
         cogotsmCountElement.innerText = data.cogotsmCounter;
         cogotsmLiveCountElement.innerText = data.cogotsmLiveCounter;
+
+        waterCountElement.innerText = data.waterCounter;
+        waterCountLiveElement.innerText = data.waterLiveCounter;
+
+        fishCountElement.innerText = data.fishCounter;
+        fishCountLiveElement.innerText = data.fishLiveCounter;
         //! Every time it creates new Canvas with new matrix size
         createCanvas(matrix[0].length * side, matrix.length * side)
         //! clearing background by setting it to new grey color
@@ -51,13 +68,13 @@ function setup() {
         for (var i = 0; i < matrix.length; i++) {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
-                    if(data.weather == "summer"){
+                    if(data.weather == "лето"){
                         fill("green");
-                    }   else if (data.weather == "autumn"){
+                    }   else if (data.weather == "осень"){
                         fill("orange");
-                    }   else if (data.weather == "winter"){
+                    }   else if (data.weather == "зима"){
                         fill("white");
-                    }   else if (data.weather == "spring"){
+                    }   else if (data.weather == "весна"){
                         fill("rgb(123, 163, 107)");
                     }
                         rect(j * side, i * side, side, side);

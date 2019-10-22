@@ -35,13 +35,13 @@ module.exports = class Fish extends LiveForm {
     }
     move() {
 
-        let emptyCells = this.chooseCell(4);
+        let emptyCells = this.chooseCell(6);
         let newCell = random(emptyCells);
 
         if (newCell) {
             let x = newCell[0];
             let y = newCell[1];
-
+            fishHashiv++;
 
             matrix[y][x] = 7;
             matrix[this.y][this.x] = 6;

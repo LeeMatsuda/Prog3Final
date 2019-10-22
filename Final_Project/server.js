@@ -29,6 +29,7 @@ predatelHashiv = 0;
 cogotsmHashiv = 0;
 fishHashiv = 0;
 waterHashiv = 0;
+
 // statistics end
 
 // time = 0
@@ -79,7 +80,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogot
     
 }
 
-matrixGenerator(44, 0, 0, 0 ,0, 1, 1);
+matrixGenerator(88, 20, 10, 2 ,3, 24, 1,0);
 
 var express = require('express');
 var app = express();
@@ -122,10 +123,12 @@ function creatingObjects() {
             else if (matrix[y][x] == 6) {
                 var water = new Water(x, y);
                 waterArr.push(water); 
+                waterHashiv++;
             }
             else if (matrix[y][x] == 7) {
                 var fish = new Fish(x, y);
                 fishArr.push(fish);
+                fishHashiv++;
 
             }
         }
@@ -141,16 +144,16 @@ function game() {
 
     exanak++;
     if (exanak <= 10){
-        weather = "summer";
+        weather = "лето";
     }
     else if (exanak <= 20){
-        weather = "autumn";
+        weather = "осень";
     }
     else if (exanak <= 30){
-        weather = "winter";
+        weather = "зима";
     } 
     else if (exanak <=40 ){
-        weather = "spring";
+        weather = "весна";
     } 
     else if (exanak = 50){
         exanak = 0;
@@ -185,10 +188,10 @@ function game() {
             for (var i in waterArr) {
                 waterArr[i].mul();
                 
-                if (waterArr.length == 50 && count ) {
+                if (waterArr.length == 10 && count ) {
                     count =false
                     let curr = random(waterArr);
-                    for (var l = 0; l < 7; l++) {
+                    for (var l = 0; l < 2; l++) {
                         matrix[curr.y][curr.x] = 7;
                         let fish = new Fish(curr.x, curr.y);
                         fishArr.push(fish)
@@ -214,14 +217,25 @@ function game() {
         matrix: matrix,
         grassCounter: grassHashiv,
         grassLiveCounter: grassArr.length,
+
         grassEaterCounter: grassEaterHashiv,
         grassEaterLiveCounter: grassEaterArr.length,
+
         predatorCounter: predatorHashiv,
         predatorLiveCounter: predatorArr.length,
+
         predatelCounter: 25,
         predatelLiveCounter: predatelArr.length,
+
         cogotsmCounter: 6,
         cogotsmLiveCounter: 6,
+
+        waterCounter: waterHashiv,
+        waterLiveCounter: waterArr.length,
+
+        fishCounter: fishHashiv,
+        fishLiveCounter: fishArr.length,
+        
         weather: weather,
     }
 

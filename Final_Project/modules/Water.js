@@ -34,7 +34,7 @@ module.exports = class Water extends LiveForm {
             let y = newCell[1];
 
             matrix[y][x] = 6;
-
+            waterHashiv++;
             let water = new Water(x, y);
             waterArr.push(water);
 

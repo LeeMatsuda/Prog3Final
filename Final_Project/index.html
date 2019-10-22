@@ -29,63 +29,75 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <h1>Ծրագրավորում III Երևան</h1>
+                <h1>Программирование 3 Степанакерт</h1>
             </tr>
             <tr>
-                <h1>Անուն Ազգանուն</h1>
+                <h1>Карапетян Валери</h1>
             </tr>
             <tr>
-                <td>Exanak</td>
+                <td>Погода:</td>
                 <td id="weather"></td>
             </tr>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Գույն</th>
-                <th scope="col">Նկարագրություն</th>
-                <th scope="col">Ծնվել է</th>
-                <th scope="col">Այս պահին կա</th>
+                <th scope="col">Цвет</th>
+                <th scope="col">Описание</th>
+                <th scope="col">Родились:</th>
+                <th scope="col">В данный момент есть:</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <th scope="row">1</th>
                 <td scope="row" style="background-color:green;"></td>
-                <td>Կանաչը խոտն է, որը բազմանում է N ցիկլը մեկ,մահանում է երբ նրան ուտում է խոտակերը, կամ այրում է
-                    կրակը, կամ երբ նրան սպանում ե տիտանը:Նրա արագությունը և գույնը փոխվում է ըստ եղանակի:</td>
+                <td>Зеленное - это трава, она </td>
                 <td id="grassCount"></td>
                 <td id="grassLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">2</th>
                 <td scope="row" style="background-color:yellow;"></td>
-                <td>Դեղինը խոտակերն է, որը բազմանում է N հատ խոտ ուտելուց հետո և մահանում է N հատ չուտելուց հետո, կամ
-                    երբ նրան ուտում է գիշատիչը, կամ երբ նրան սպանում ե տիտանը:</td>
+                <td>Это травоядный, они едят траву и размножаются. </td>
                 <td id="grassEaterCount"></td>
                 <td id="grassEaterLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">3</th>
                 <td scope="row" style="background-color:red;"></td>
-                <td>Կարմիրը գիշատիչն է, որը բազմանում է N հատ խոտակեր ուտելուց հետո և մահանում է N հատ չուտելուց հետո, կամ
-                    երբ նրան ուտում է տերմինատորը, կամ երբ նրան սպանում ե տիտանը:</td>
+                <td>Это хищники, они убивают травоядных и размножаются.</td>
                 <td id="predatorCount"></td>
                 <td id="predatorLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">4</th>
                 <td scope="row" style="background-color:blue;"></td>
-                <td>Կապույտը տերմինատորն է, որը բազմանում է N հատ գիշատիչ ուտելուց հետո և մահանում է N հատ չուտելուց հետո, կամ
-                    երբ նրան ուտում է տիտանը:</td>
+                <td>Это охотнике, они убивают хищников и размножаются со временем.</td>
                 <td id="predatelCount"></td>
                 <td id="predatelLiveCount"></td>
             </tr>
             <tr>
                 <th scope="row">5</th>
                 <td scope="row" style="background-color:black;"></td>
-                <td>Սևը տիտանն է, որը շատ դժվար ե բազմանում:Բազմանում է N հատ խոտակեր,գիշատիչ,խոտ,տերմինատոր ուտելուց հետո և չի մահանում:
+                <td>Это коготь смерти, он убивает всех кроме воды и рыб, размножения нет.
                     </td>
                 <td id="cogotsmCount"></td>
                 <td id="cogotsmLiveCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background-color:#F0E68C;"></td>
+                <td>Это рыбы, они появляются в воде и кружат в ней.
+                    </td>
+                <td id="waterCount"></td>
+                <td id="waterLiveCount"></td>
+            </tr>
+            <tr>
+                <th scope="row">5</th>
+                <td scope="row" style="background-color:#3977ff;"></td>
+                <td>Это вода, она размножается со временем и в ней появляются рыбы.
+                    </td>
+                <td id="fishCount"></td>
+                <td id="fishLiveCount"></td>
             </tr>
         </tbody>
     </table>
