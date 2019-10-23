@@ -4,7 +4,7 @@ function setup() {
     var socket = io();
     var side = 10;
     var matrix = [];
-    
+
     //! Getting DOM objects (HTML elements)
     let weatherElement = document.getElementById('weather');
 
@@ -34,22 +34,22 @@ function setup() {
 
 
     function drawCreatures(data) {
- 
-    
+
+
         matrix = data.matrix;
         weatherElement.innerText = data.weather;
         grassCountElement.innerText = data.grassCounter;
         grassLiveCountElement.innerText = data.grassLiveCounter;
-        
+
         grassEaterCountElement.innerText = data.grassEaterCounter;
         grassEaterLiveCountElement.innerText = data.grassEaterLiveCounter;
 
         predatorCountElement.innerText = data.predatorCounter;
         predatorLiveCountElement.innerText = data.predatorLiveCounter;
-       
+
         predatelCountElement.innerText = data.predatelCounter;
         predatelLiveCountElement.innerText = data.predatelLiveCounter;
-        
+
         cogotsmCountElement.innerText = data.cogotsmCounter;
         cogotsmLiveCountElement.innerText = data.cogotsmLiveCounter;
 
@@ -68,43 +68,58 @@ function setup() {
         for (var i = 0; i < matrix.length; i++) {
             for (var j = 0; j < matrix[i].length; j++) {
                 if (matrix[i][j] == 1) {
-                    if(data.weather == "лето"){
+                    if (data.weather == "лето") {
                         fill("green");
-                    }   else if (data.weather == "осень"){
+                    } else if (data.weather == "осень") {
                         fill("orange");
-                    }   else if (data.weather == "зима"){
+                    } else if (data.weather == "зима") {
                         fill("white");
-                    }   else if (data.weather == "весна"){
+                    } else if (data.weather == "весна") {
                         fill("rgb(123, 163, 107)");
                     }
-                        rect(j * side, i * side, side, side);
-                    }   else if (matrix[i][j] == 2) {
-                        fill("yellow");
-                        rect(j * side, i * side, side, side);
-                    }  else if (matrix[i][j] == 0) {
-                        fill('#acacac');
-                        rect(j * side, i * side, side, side);
-                    }   else if (matrix[i][j] == 3) {
-                        fill('red');
-                        rect(j * side, i * side, side, side);
-                    }   else if (matrix[i][j] == 4) {
-                        fill('blue');
-                        rect(j * side, i * side, side, side);
-                    }   else if (matrix[i][j] == 5) {
-                        fill('black');
-                        rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 2) {
+                    if (data.weather == "лето") {
+                        fill("rgb(255, 255, 0)");
+                    } else if (data.weather == "осень") {
+                        fill("rgb(255, 238, 0)");
+                    } else if (data.weather == "зима") {
+                        fill("rgb(255, 216, 0)");
+                    } else if (data.weather == "весна") {
+                        fill("rgb(255, 201, 0)");
                     }
-                        else if (matrix[i][j] == 7) {
-                        fill('#F0E68C');
-                        rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 0) {
+                    fill('#acacac');
+                } else if (matrix[i][j] == 3) {
+                    if (data.weather == "лето") {
+                        fill("rgb(255, 1, 0)");
+                    } else if (data.weather == "осень") {
+                        fill("rgb(140, 1, 0)");
+                    } else if (data.weather == "зима") {
+                        fill("rgb(116, 1, 0)");
+                    } else if (data.weather == "весна") {
+                        fill("rgb(98, 1, 0)");
                     }
-                        else if (matrix[i][j] == 6) {
-                        fill('#3977ff');
-                        rect(j * side, i * side, side, side);
+                } else if (matrix[i][j] == 4) {
+                    if (data.weather == "лето") {
+                        fill("rgb(138, 1, 253)");
+                    } else if (data.weather == "осень") {
+                        fill("rgb(95, 1, 173)");
+                    } else if (data.weather == "зима") {
+                        fill("rgb(95, 1, 110)");
+                    } else if (data.weather == "весна") {
+                        fill("rgb(95, 1, 79)");
+                    }
+                } else if (matrix[i][j] == 5) {
+                    fill('black');
+                }
+                else if (matrix[i][j] == 7) {
+                    fill('#F0E68C');
+                }
+                else if (matrix[i][j] == 6) {
+                    fill('#3977ff');
+                }
+                rect(j * side, i * side, side, side);
+            }
         }
     }
 }
-}
-}
-
-// Го

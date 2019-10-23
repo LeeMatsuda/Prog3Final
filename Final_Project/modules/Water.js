@@ -43,4 +43,28 @@ module.exports = class Water extends LiveForm {
 
 
     }
+
+    eat() {
+        let emptyCells = this.chooseCell(5);
+        let newCell = random(emptyCells);
+
+        if (newCell) {
+
+            let x = newCell[0];
+            let y = newCell[1];
+
+            matrix[y][x] = 6;
+            matrix[this.y][this.x] = 0;
+
+            for (let i in cogotsmArr) {
+                if (cogotsmArr[i].x == x && cogotsmArr[i].y == y) {
+                    cogotsmArr.splice(i, 1)
+                }
+            }
+
+            this.y = y;
+            this.x = x;
+
+        }
+    }
 }

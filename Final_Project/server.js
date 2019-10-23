@@ -80,7 +80,7 @@ function matrixGenerator(matrixSize, grass, grassEater, predator,predatel, cogot
     
 }
 
-matrixGenerator(88, 20, 10, 2 ,3, 24, 1,0);
+matrixGenerator(88, 20, 10, 20 ,3, 24, 1,0);
 
 var express = require('express');
 var app = express();
@@ -170,6 +170,11 @@ function game() {
             grassEaterArr[i].eat();
         }
     }
+    if (waterArr[0] !== undefined){
+        for (var i in waterArr){
+            waterArr[i].eat();
+        }
+    }
     if (predatorArr[0] !== undefined) {
         for (var i in predatorArr) {
             predatorArr[i].eat();
@@ -227,14 +232,14 @@ function game() {
         predatelCounter: 25,
         predatelLiveCounter: predatelArr.length,
 
-        cogotsmCounter: 6,
-        cogotsmLiveCounter: 6,
+        cogotsmCounter: 24,
+        cogotsmLiveCounter: cogotsmArr.length,
 
         waterCounter: waterHashiv,
         waterLiveCounter: waterArr.length,
 
-        fishCounter: fishHashiv,
-        fishLiveCounter: fishArr.length,
+        fishCounter: 2,
+        fishLiveCounter: 2,
         
         weather: weather,
     }

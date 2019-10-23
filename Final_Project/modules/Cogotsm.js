@@ -91,4 +91,14 @@ module.exports = class Cogotsm extends LiveForm {
 
         }
     }
+
+    die() {
+        matrix[this.y][this.x] = 0;
+
+        for (let i in cogotsmArr) {
+            if (cogotsmArr[i].x == this.x && cogotsmArr[i].y == this.y) {
+                cogotsmArr.splice(i, 1)
+            }
+        }
+    }
 }
